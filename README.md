@@ -1,5 +1,18 @@
+WEATHER FORECAST API:
 
+The URLs of the deployed applications: https://sosingh1226.github.io/howzdaweather/
 
+The URLs of the GitHub repositories: https://github.com/sosingh1226/howzdaweather
+
+Creating a Day Planner was indeed very stressful at first, every step required harmony between JavaScript, CSS & HTML files.
+
+NEW LEARNINGS!
+
+1. Usage of API is goldmine and I totally loved exploring it
+2. Use of local storage and displaying it on clicking was challenging
+3. This code was very challenging, web of logics and loops and functions
+
+THANK YOU!
 
 
 # 06 Server-Side APIs: Weather Dashboard
