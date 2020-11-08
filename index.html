@@ -1,176 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900" rel="stylesheet">
-
-  <style>
-  body {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 400;
-      font-size: 1.3em;
-      color: #fff;
-      text-shadow: .1em .1em 0 rgba(0,0,0,0.3);
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-image: linear-gradient(to right top, #99bbcb, #a5c7d7, #b1d4e2, #bde0ee, #c9edfa);
-  }
-  h1 {
-      margin: 0 auto;
-      font-size: 2.2em;
-      text-align: center;
-      color: #fff;
-      font-size: 5em;
-  }
-  body.sunny {
-      background-image: linear-gradient(to right top, #ff4e50, #ff713e, #ff932b, #ffb41d, #f9d423);
-  }
-  body.cloudy {
-      background-image: linear-gradient(to right top, #63747c, #71858e, #7f96a0, #8da8b2, #9bbac5);
-  }
-  body.rainy {
-      background-image: linear-gradient(to right top, #637c7b, #718e8c, #7ea09e, #8db2b0, #9bc5c3);
-  }
-  </style> -->
-
-
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link rel="stylesheet" href="./Assets/style.css"> -->
-  <title>API Practice</title>
+  <link rel="stylesheet" href="./Assets/style.css">
+  <title>Check Today's Weather</title>
 </head>
 <body>
 
-<!--   
-  <div class="input">
-    <input type="text" placeholder="Enter the city" id="input_text">
-    <input type="submit" value="Submit" class="submit">
-  </div> -->
-
-  <!-- <form>
-    <div class="form-row align-items-center">
-      <div class="col-auto">
-        <input type="text" id="initials" name="myText">
-        <div class="col-auto">
-          <button type="button" id="submit_initials" value="Submit" class="btn btn-primary mb-2">Submit</button>
-        </div>
-      </div>
-    </div>
-  </form> -->
-
-  <div class="card">
-    <h2>Weather Forecast</h2>
-    <form method="POST">
-        <div class="input-group">
-        <label for="city">City</label>
-        <input type="text" name="cityname" id="cityname" placeholder="enter city name" />
-        </div>
-        <div id="msg"></div>
-        <button id="checkweather">Check Weather</button>
-    </form>
-</div>
-
-
-
-  <!-- <div class="container">
-    <div class="card"> -->
-      <!-- <h4 class="city" id="city"></h4> -->
-      <!-- <p class="date"></p>
-      <p class="icon"></p>
-      <p class="temp"></p>
-      <p class="humidity"></p>
-      <p class="windspeed"></p>
-      <p class="uvindex"></p>
-    </div>
-  </div> -->
-
   <br>
   <br>
 
-  <table id="myTable" class="tg">
+  <!-- Creating a row of previously searched cities -->
+
+  <table id="myTable" class="tg" onclick="addRowHandlers(this)">
     <tr>
       <td></td>
     </tr>
   </table>
   <br>
 
+<!-- Creating another form to enter City to forecast weather  -->
 
-  <div>
-    <h1 class="city" id="city"></h1>
-  </div>
+<table class="tg">
+    <thead>
+      <tr>
+        <th class="tg-0lax">
+          <div>
+              <h2>Weather Forecast</h2>
+              <form method="POST">
+                  <div class="input-group">
+                  <label for="city">City</label>
+                  <input type="text" name="cityname" id="cityname" placeholder="enter city name" />
+                  </div>
+                  <div id="msg"></div>
+                  <button id="checkweather">Check Weather</button>
+              </form>
+          </div>
+        </th>
+      </tr>
+    </thead>
+</table>
 
+<!-- Creating new table to display city name, date, temperature, humidity & icon -->
 
-
-
-
-
-
-  <style type="text/css">
+<style type="text/css">
     .tg  {border-collapse:collapse;border-spacing:0;}
     .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
       overflow:hidden;padding:10px 5px;word-break:normal;}
     .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
       font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-    .tg .tg-0lax{text-align:left;vertical-align:top}
-    </style>
-    <table class="tg">
-    <thead>
-      <tr>
-        <th class="tg-0lax">
-          <div id="weather0">
-            <p id="description0"></p>
-            <p id="temp0"></p>
-            <p id="date0"></p>
-            <p class="weather-icon0"><img src="icons/unknown.png" /></p>
-            <p id="humidity0"></p>
-          </div>
-        </th>
-        <th class="tg-0lax">
-          <div id="weather8">
-            <p id="description8"></p>
-            <p id="temp8"></p>
-            <p id="date8"></p>
-            <p class="weather-icon8"><img src="icons/unknown.png" /></p>
-            <p id="humidity8"></p>
-          </div>
-        </th>
-        <th class="tg-0lax">
-          <div id="weather16">
-            <p id="description16"></p>
-            <p id="temp16"></p>
-            <p id="date16"></p>
-            <p class="weather-icon16"><img src="icons/unknown.png" /></p>
-            <p id="humidity16"></p>
-          </div>
-        </th>
-        <th class="tg-0lax">
-          <div id="weather24">
-            <p id="description24"></p>
-            <p id="temp24"></p>
-            <p id="date24"></p>
-            <p class="weather-icon24"><img src="icons/unknown.png" /></p>
-            <p id="humidity24"></p>
-          </div>
-        </th>
-        <th class="tg-0lax">
-          <div id="weather32">
-            <p id="description32"></p>
-            <p id="temp32"></p>
-            <p id="date32"></p>
-            <p class="weather-icon32"><img src="icons/unknown.png" /></p>
-            <p id="humidity32"></p>
-          </div>
-        </th>
-      </tr>
-    </thead>
-    </table>
+    .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
 
+<table class="tg">
+  <thead>
+    <tr>
+      <th class="tg-0lax" colspan="5">
+        <div>
+          <h1 class="city" id="city"></h1>
+        </div>
+      </th>
+    </tr>
+    <tr>
+      <th class="tg-0lax">
+        <div id="weather0">
+          <p id="description0"></p>
+          <p id="temp0"></p>
+          <p id="date0"></p>
+          <p class="weather-icon0"><img src="icons/unknown.png" /></p>
+          Humidity: <p id="humidity0"></p>
+        </div>
+      </th>
+      <th class="tg-0lax">
+        <div id="weather8">
+          <p id="description8"></p>
+          <p id="temp8"></p>
+          <p id="date8"></p>
+          <p class="weather-icon8"><img src="icons/unknown.png" /></p>
+          Humidity: <p id="humidity8"></p>
+        </div>
+      </th>
+      <th class="tg-0lax">
+        <div id="weather16">
+          <p id="description16"></p>
+          <p id="temp16"></p>
+          <p id="date16"></p>
+          <p class="weather-icon16"><img src="icons/unknown.png" /></p>
+          Humidity: <p id="humidity16"></p>
+        </div>
+      </th>
+      <th class="tg-0lax">
+        <div id="weather24">
+          <p id="description24"></p>
+          <p id="temp24"></p>
+          <p id="date24"></p>
+          <p class="weather-icon24"><img src="icons/unknown.png" /></p>
+          Humidity: <p id="humidity24"></p>
+        </div>
+      </th>
+      <th class="tg-0lax">
+        <div id="weather32">
+          <p id="description32"></p>
+          <p id="temp32"></p>
+          <p id="date32"></p>
+          <p class="weather-icon32"><img src="icons/unknown.png" /></p>
+          Humidity: <p id="humidity32"></p>
+        </div>
+      </th>
+    </tr>
+  </thead>
+</table>
 
-  <!-- <script src="Assets/script.js"></script> -->
-  <script src="Assets/weather.js"></script>
+<!-- calling JavaScript file -->
+
+<script src="Assets/weather.js"></script>
 
 </body>
 </html>
