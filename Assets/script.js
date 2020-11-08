@@ -1,6 +1,6 @@
 var submit = document.querySelector('.submit')
 var input = document.querySelector('.input_text');
-var city = document.querySelector('#city')
+// var city = document.querySelector('#city')
 var date = document.querySelector('.date')
 var icon = document.querySelector('icon')
 var temp = document.querySelector('temp')
@@ -15,23 +15,42 @@ fetch('https://api.openweathermap.org/data/2.5/forecast?q='+input.value+'&appid=
 .then(response => response.json())
 .then(data => {
 
-  var cityValue = data['city']['name'];
-  var dateValue = data['list']['dt_txt'];
-  // var icon = data['weather']['icon'];
-  var tempValue = data['main']['temp'];
-  var humidityValue = data['main']['humidity'];
-  var windspeedValue = data['wind']['speed'];
 
 
-  city.innerHTML = cityValue;
-  date.innerHTML = dateValue;
-  // icon.innerHTML = iconValue;
-  temp.innerHTML = tempValue;
-  humidity.innerHTML = humidityValue;
-  windspeed.innerHTML = windspeedValue;
-  input.value ="";
+  // var inputValue = data['list']['city']['name'];
+  // console.log(inputValue)
+  console.log(data)
+  var objWeather = JSON.parse(data);
+
+  console.log("herrrrrrrr")
+  console.log(objWeather)
+
+  // var name = objWeather.city.name;
+  // console.log(name)
+
+  // var dateValue = data['list']['dt_txt'];
+  // console.log(dateValue)
+  // // var icon = data['weather']['icon'];
+  // var tempValue = data['list']['main']['temp'];
+  // console.log(tempValue)
+  // var humidityValue = data['list']['main']['humidity'];
+  // console.log(humidityValue)
+  // var windspeedValue = data['list']['wind']['speed'];
+  // console.log(windspeedValue)
+
+  // input.innerHTML = inputValue;
+  // date.innerHTML = dateValue;
+  // // icon.innerHTML = iconValue;
+  // temp.innerHTML = tempValue;
+  // humidity.innerHTML = humidityValue;
+  // windspeed.innerHTML = windspeedValue;
+  // input.value ="";
+
+  return response.blob();
 
 })
 
-.catch(err => alert("Wrong city name!"));
+
+// .catch(err => alert("Wrong city name!"));
+  
   })
