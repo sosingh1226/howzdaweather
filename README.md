@@ -4,7 +4,7 @@ The URLs of the deployed applications: https://sosingh1226.github.io/howzdaweath
 
 The URLs of the GitHub repositories: https://github.com/sosingh1226/howzdaweather
 
-Creating a Day Planner was indeed very stressful at first, every step required harmony between JavaScript, CSS & HTML files.
+Creating a Weather Forecast was indeed very challenging, every step required harmony between JavaScript, CSS & HTML files.
 
 NEW LEARNINGS!
 
@@ -14,6 +14,9 @@ NEW LEARNINGS!
 
 THANK YOU!
 
+Screenshot-
+
+![weather](./Assets/weatherdash.gif)
 
 # 06 Server-Side APIs: Weather Dashboard
 
